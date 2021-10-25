@@ -1,1 +1,1 @@
-# hoejack_codingpractice
+Coding practices using CheckIO
