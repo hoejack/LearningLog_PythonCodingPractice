@@ -1,0 +1,75 @@
+Input: Heights of the buildings as a 2D-array.
+
+Output: The number of the highest building and height of it as a list of integers 
+(Important: in this task the building numbers starts from "1", not from "0")
+
+Example:
+highest_building([[0, 0, 1, 0],
+                  [1, 0, 1, 1],
+                  [1, 1, 1, 1],
+                  [1, 1, 1, 1]]) == [3, 4]
+
+# My code
+def highest_building(buildings):
+    
+    block = buildings[0]
+    height = buildings
+    
+    tallest = 0
+    floor = 0
+    numberth = 0
+    
+    for i in range(len(block)):
+        for flr in range(len(height)):
+            if buildings[flr][i] == 1:
+                floor += 1
+        
+        if floor > tallest:
+            tallest = floor
+            numberth = i + 1
+            floor = 0
+        else:
+            floor = 0
+    
+    return [numberth, tallest]
+
+
+__________________________________
+
+if __name__ == '__main__':
+    print("Example:")
+    print(highest_building([
+        [0, 0, 1, 0],
+        [1, 0, 1, 0],
+        [1, 1, 1, 0],
+        [1, 1, 1, 1]
+    ]))
+
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    assert highest_building([
+        [0, 0, 1, 0],
+        [1, 0, 1, 0],
+        [1, 1, 1, 0],
+        [1, 1, 1, 1]
+    ]) == [3, 4], "Common"
+    assert highest_building([
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 1]
+    ]) == [4, 1], "Cabin in the wood"
+    assert highest_building([
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1]
+    ]) == [1, 5], "Triangle"
+    assert highest_building([
+        [0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [0, 1, 1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1]
+    ]) == [4, 6], "Pyramid"
