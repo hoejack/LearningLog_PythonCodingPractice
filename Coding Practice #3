@@ -1,0 +1,20 @@
+29 August 2022
+# Refresher for Random
+import random
+random.randint(0, 100) 
+
+The provided code stub reads and integer, n, from STDIN. For all non-negative integers i < n, print i ** 2.
+Example
+The list of non-negative integers that are less than n = 3  is [0, 1, 2]. Print the square of each number on a separate line.
+Outcome: 
+0
+1
+4
+
+Solution:
+
+c = 0 
+    
+    while c != n: 
+        print(c**2)
+        c = c + 1
